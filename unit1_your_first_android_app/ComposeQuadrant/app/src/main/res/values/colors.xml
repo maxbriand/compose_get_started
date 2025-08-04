@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purple_light">#FFEADDFF</color>
     <color name="purple_dark">#FFD0BCFF</color>
-    <color name="purple_very_dart">#FFB69DF8</color>
+    <color name="purple_very_dark">#FFB69DF8</color>
     <color name="purple_very_light">#FFF6EDFF</color>
 
 </resources>
