@@ -8,16 +8,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -50,41 +47,34 @@ fun ComposeQuadrant(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Row(
             modifier = Modifier
-                .weight(0.5f)
+                .weight(1f)
         ) {
             Quadrant(
                 title = stringResource(R.string.title_one),
                 content = stringResource(R.string.description_one),
                 modifier = Modifier
                     .background(color = colorResource(R.color.purple_light))
-                    .weight(0.5f)
-                    .fillMaxSize()
-                    .padding(16.dp)
+                    .weight(1f)
+
             )
             Quadrant(
                 title = stringResource(R.string.title_two),
                 content = stringResource(R.string.description_two),
                 modifier = Modifier
                     .background(color = colorResource(R.color.purple_dark))
-                    .weight(0.5f)
-                    .fillMaxSize()
-                    .weight(0.5f)
-                    .padding(16.dp)
+                    .weight(1f)
             )
         }
         Row(
             modifier = Modifier
-                .weight(0.5f)
+                .weight(1f)
         ) {
             Quadrant(
                 title = stringResource(R.string.title_three),
                 content = stringResource(R.string.description_three),
                 modifier = Modifier
                     .background(colorResource(R.color.purple_very_dark))
-                    .weight(0.5f)
-                    .fillMaxSize()
-                    .weight(0.5f)
-                    .padding(16.dp)
+                    .weight(1f)
 
 
             )
@@ -93,9 +83,7 @@ fun ComposeQuadrant(modifier: Modifier = Modifier) {
                 content = stringResource(R.string.description_four),
                 modifier = Modifier
                     .background(color = colorResource(R.color.purple_very_light))
-                    .weight(0.5f)
-                    .fillMaxSize()
-                    .padding(16.dp)
+                    .weight(1f)
             )
         }
     }
@@ -108,7 +96,9 @@ fun Quadrant(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

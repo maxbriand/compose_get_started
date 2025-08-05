@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Business Card</string>
+    <string name="my_name">Maxime Briand</string>
+    <string name="my_activity">Mobile Developer</string>
+    <string name="my_phone_number">+33 6 67 95 80 24</string>
+    <string name="my_email">pro.maximebriand@gmail.com</string>
+    <string name="my_github">"@maxbriand"</string>
+</resources>
