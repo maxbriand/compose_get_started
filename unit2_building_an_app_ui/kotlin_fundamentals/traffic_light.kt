@@ -16,12 +16,13 @@
 // }
 
 fun main() {
-  val trafficLightColor = "Orange"
+  val trafficLightColor : String = "YYYellow"
 
   when (trafficLightColor){
     "Red" -> println("Stop!")
+    "Orange", "Yellow" -> println("Reduce your speed!")
     "Green" -> println("You can move!")
-    "Orange" -> println("You reduce the speed of the car!")
+    is String -> println("Unknown color!")
     else -> println("Unexpected light color!")
   }
 }
