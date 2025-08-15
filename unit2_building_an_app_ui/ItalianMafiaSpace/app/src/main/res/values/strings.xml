@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Italian Mafia Space</string>
+
+    <!--    Donnie Brasco-->
+    <string name="donnie_brasco">Donnie Brasco</string>
+    <string name="donnie_brasco_date">1997</string>
+    <string name="donnie_brasco_director">Mike Newell</string>
+
+    <!--    The Godfather-->
+    <string name="the_godfather">The Godfather</string>
+    <string name="the_godfather_date">1972</string>
+    <string name="the_godfather_director">Francis Ford Coppola</string>
+
+    <!--    Casino-->
+    <string name="casino">Casino</string>
+    <string name="casino_date">1995</string>
+    <string name="casino_director">Francis Ford Coppola</string>
+
+    <!--    Goodfellas-->
+    <string name="goodfellas">Goodfellas</string>
+    <string name="goodfellas_date">1990</string>
+    <string name="goodfellas_director">Martin Scorsese</string>
+
+    <!--    The Untouchables-->
+    <string name="the_untouchable">The Untouchable</string>
+    <string name="the_untouchable_date">1987</string>
+    <string name="the_untouchable_director">Brian De Palma</string>
+
+</resources>
