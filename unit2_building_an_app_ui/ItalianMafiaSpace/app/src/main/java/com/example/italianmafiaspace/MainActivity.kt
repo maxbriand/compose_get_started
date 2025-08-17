@@ -9,9 +9,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
@@ -83,10 +86,13 @@ fun MafiaSpaceLayout(modifier: Modifier = Modifier) {
     )
 
     Column(
-        modifier = modifier.background(color = colorResource(id = R.color.background)),
+        modifier = modifier
+            .background(color = colorResource(id = R.color.background)),
     ) {
         Column(
-            modifier.padding(all = 20.dp),
+            modifier
+                .padding(all = 20.dp)
+                .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
@@ -94,12 +100,12 @@ fun MafiaSpaceLayout(modifier: Modifier = Modifier) {
                 modifier = modifier
                     .weight(5f)
                     .fillMaxSize()
-                    .background(color = colorResource(R.color.purple_200))
-                    .shadow(8.dp, RoundedCornerShape(16.dp))      // draws shadow
+//                    .shadow(8.dp, RoundedCornerShape(16.dp)),
             ) {
                 Image(
                     painter = painterResource(movies[page][0]),
                     contentDescription = null,
+                    modifier = Modifier.fillMaxSize()
                 )
             }
             Column(
@@ -107,7 +113,7 @@ fun MafiaSpaceLayout(modifier: Modifier = Modifier) {
 
                 modifier = modifier
                     .weight(2f)
-                    .padding(20.dp)
+//                    .padding(20.dp)
                     .background(color = colorResource(R.color.background_datas))
 
             ) {
@@ -131,18 +137,23 @@ fun MafiaSpaceLayout(modifier: Modifier = Modifier) {
             Row(
                 modifier = modifier
                     .weight(1f)
-                    .fillMaxWidth()
-                    .padding(start = 20.dp, end = 20.dp)
-                    .background(color = Color.Red),
-                horizontalArrangement = Arrangement.SpaceBetween
+                    .fillMaxWidth(),
+//                    .padding(start = 20.dp, end = 20.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
 
             ) {
                 Button(
+                    modifier = Modifier
+                        .size(120.dp)
+                        .fillMaxHeight(),
                     onClick = {
                         if (page != 0) page--
                         else page = 4
                     }) { Text("Previous") }
                 Button(
+                    modifier = Modifier
+                        .size(120.dp)
+                        .fillMaxHeight(),
                     onClick = {
                         if (page != 4) page++
                         else page = 0
