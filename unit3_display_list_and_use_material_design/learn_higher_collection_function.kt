@@ -51,8 +51,48 @@ val cookies = listOf(
 )
 
 fun main() {
-    cookies.forEach{
-        println("${it.name}")
+    // For each function
+    // cookies.forEach{
+    //     println("${it.name}")
+    // }
+
+    println("Soft Baked Cookies:")
+
+    // map function
+    // val menu = cookies.map{
+    //     "${it.name}"
+    // }
+    // menu.forEach {
+    //     println(it)
+    // }
+
+
+    // filter function
+    // val softBakedCookies = cookies.filter { it.softBaked }
+    // softBakedCookies.forEach {
+    //     println(it.name)}    
+
+
+    // groupBy function
+    // val softCookies = cookies.groupBy { it.softBaked }
+    // softCookies[true]?.forEach {
+    //     println(it.name)
+    // }    
+
+    // fold function
+    // val totalPrince = cookies.fold(10.0) {total, cookie ->
+    //     total + cookie.price
+    // }
+    // println("Total Price: $totalPrince")
+
+    // sort function
+    val sortedCookiesByPrice = cookies.sortedBy {
+        it.price
     }
-}
+    sortedCookiesByPrice.forEach {
+        println("${it.name} - \$${it.price}")
+    }
+
+
+    }
 
