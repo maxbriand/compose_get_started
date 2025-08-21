@@ -19,16 +19,36 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.affirmations.data.Datasource
 import com.example.affirmations.model.Affirmation
 import com.example.affirmations.ui.theme.AffirmationsTheme
@@ -41,9 +61,10 @@ class MainActivity : ComponentActivity() {
             AffirmationsTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background,
                 ) {
-
+                    AffirmationsApp()
                 }
             }
         }
@@ -54,15 +75,49 @@ class MainActivity : ComponentActivity() {
 fun AffirmationsApp(modifier: Modifier = Modifier) {
     val getData = Datasource()
     val affirmations: List<Affirmation> = getData.loadAffirmations()
-    Column {
 
+    Scaffold(
+        contentWindowInsets = WindowInsets.safeDrawing // handles status/nav bars
+    ) { innerPadding ->
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+        ) {
+            affirmations.forEach { AffirmationCard(it) }
+        }
     }
 }
+
 
 @Composable
 fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
-    Card {
-        Text(stringResource(affirmation.stringResourceId))
-        Image(painter = painterResource(affirmation.imageResourceId), contentDescription = null)
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(
+                end = 10.dp, start = 10.dp, top = 5.dp, bottom = 5.dp
+            )
+    ) {
+        Box(
+            modifier = Modifier.height(175.dp)
+        ) {
+            Image(
+                painter = painterResource(affirmation.imageResourceId),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight(),
+                contentScale = ContentScale.FillWidth
+            )
+        }
+        Text(
+            text = stringResource(affirmation.stringResourceId),
+            fontSize = 18.sp,
+            modifier = Modifier.padding(all = 15.dp)
+        )
     }
 }
+
+
